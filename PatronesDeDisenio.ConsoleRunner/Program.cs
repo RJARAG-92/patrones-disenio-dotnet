@@ -1,6 +1,7 @@
 ﻿// Program.cs - ConsoleRunner
+using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo1.Creator;
 using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo1.Factories;
-using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo2.Factories; 
+using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo2.Factories;
 
 Console.WriteLine("=== PATRONES DE DISEÑO EN .NET ===");
 Console.WriteLine("Seleccione un patrón:");

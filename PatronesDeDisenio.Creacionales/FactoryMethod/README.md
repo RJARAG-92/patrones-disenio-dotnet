@@ -45,6 +45,22 @@ Ubicación: `FactoryMethod/Ejemplo2`
 - Cada tipo de documento tiene su propio validador con lógica especializada.
 - Se selecciona dinámicamente el validador adecuado usando una fábrica.
 
+### 📊 Comparativa entre Ejemplo 1 y Ejemplo 2
+
+| Aspecto                      | Ejemplo 1: Notificaciones                            | Ejemplo 2: Validación de Documentos                           |
+| ---------------------------- | ---------------------------------------------------- | ------------------------------------------------------------- |
+| **Propósito**                | Elegir cómo enviar un mensaje (Email o SMS)          | Validar reglas de negocio según tipo de documento             |
+| **Tipo de creación**         | Objeto de tipo `INotificacion`                       | Objeto de tipo `IValidadorDocumento`                          |
+| **Complejidad del producto** | Simple, comportamiento directo (`Enviar`)            | Complejo, múltiples validaciones por tipo de documento        |
+| **Parámetro del método**     | Solo un `string mensaje`                             | Puede ser un objeto `Documento` con múltiples propiedades     |
+| **Tipo de fábrica**          | `NotificacionFactory` → `EmailFactory`, `SmsFactory` | `ValidadorFactoryConcreto` centralizada                       |
+| **Uso de subclases**         | Fábricas concretas heredan de `NotificacionFactory`  | Una única clase `ValidadorFactoryConcreto` maneja el switch   |
+| **Escenario real**           | Comunicación (SMS/Email)                             | Lógica empresarial, reglas de negocio                         |
+| **Contexto típico**          | Servicio o utilitario                                | Validaciones en un sistema transaccional (ERP, trámite, etc.) |
+| **Nivel de abstracción**     | Básico / estructural                                 | Empresarial / orientado al dominio                            |
+| **Nivel de realismo**        | Ideal para enseñar el patrón                         | Ideal para usar en sistemas reales                            |
+
+
 ---
 
 ## 🖥️ Uso desde consola
