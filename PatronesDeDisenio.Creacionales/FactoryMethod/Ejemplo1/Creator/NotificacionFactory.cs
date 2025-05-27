@@ -1,6 +1,6 @@
 ﻿using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo1.Interfaces;
 
-namespace PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo1.Factories
+namespace PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo1.Creator
 {
     public abstract class NotificacionFactory
     {
