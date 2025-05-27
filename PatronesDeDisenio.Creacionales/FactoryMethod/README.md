@@ -1,39 +1,53 @@
-# 🏗️ Factory Method - Ejemplo 1
+# 🏗️ Factory Method
 
-Este ejemplo muestra una implementación del patrón **Factory Method** usando C# y .NET, con una estructura modular dividida en **Factories**, **Interfaces** y **Services**.
+El patrón **Factory Method** permite delegar la creación de objetos a subclases específicas, promoviendo flexibilidad y desacoplamiento. Este patrón proporciona una interfaz para crear objetos en una superclase, pero permite que las subclases alteren el tipo de objetos que se crearán.
 
 ---
 
-## 📁 Estructura del ejemplo
+## ❓ ¿Para qué sirve?
+- Para permitir que una clase delegue la instanciación a subclases.
+- Para evitar el acoplamiento directo con clases concretas.
+- Para crear objetos en tiempo de ejecución basados en condiciones dinámicas.
+
+---
+
+## ⏱️ ¿Cuándo usarlo?
+- Cuando el código debe trabajar con interfaces y no con implementaciones concretas.
+- Cuando una clase no puede anticipar qué clase de objetos debe crear.
+- Cuando la lógica de creación debe variar según contexto, configuración o entrada del usuario.
+
+---
+
+## 📁 Estructura del patrón
 
 ```
-FactoryMethod/
-└── Ejemplo1/
-    ├── Interfaces/
-    │   └── INotificacion.cs
-    ├── Services/
-    │   ├── NotificacionEmail.cs
-    │   └── NotificacionSms.cs
-    ├── Factories/
-    │   ├── NotificacionFactory.cs (abstracta)
-    │   ├── EmailFactory.cs
-    │   └── SmsFactory.cs
+Product        -> Interfaz o clase abstracta común (INotificacion, IValidadorDocumento)
+ConcreteProduct -> Implementaciones concretas (NotificacionEmail, ValidadorFactura)
+Creator        -> Clase abstracta con método de fábrica (NotificacionFactory)
+ConcreteCreator -> Subclases que implementan el método de fábrica (EmailFactory)
 ```
 
 ---
 
-## 🧠 Descripción
+## 📦 Ejemplos incluidos
 
-- `INotificacion`: Interfaz base para todos los tipos de notificación.
-- `NotificacionEmail` y `NotificacionSms`: Implementaciones concretas de notificación.
-- `NotificacionFactory`: Clase abstracta que declara el método `CrearNotificacion()` y define el comportamiento común `EnviarConLog()`.
-- `EmailFactory` y `SmsFactory`: Fábricas concretas que implementan la creación específica.
+### 🧪 Ejemplo 1: Notificaciones (básico)
+Ubicación: `FactoryMethod/Ejemplo1`
+
+- Crea notificaciones por **Email** o **SMS** según la fábrica seleccionada.
+- Demuestra el uso de métodos reutilizables (`EnviarConLog`) en la clase abstracta.
+- Se usa en consola y en pruebas con `xUnit`.
+
+### 🏢 Ejemplo 2: Validación de documentos empresariales (real)
+Ubicación: `FactoryMethod/Ejemplo2`
+
+- Valida distintos tipos de documentos: **Factura**, **Contrato**, **Memorando**.
+- Cada tipo de documento tiene su propio validador con lógica especializada.
+- Se selecciona dinámicamente el validador adecuado usando una fábrica.
 
 ---
 
-## 🖥️ Ejecución desde consola
-
-El proyecto `PatronesDeDisenio.ConsoleRunner` contiene un menú para ejecutar este ejemplo:
+## 🖥️ Uso desde consola
 
 ```bash
 Seleccione un patrón:
@@ -42,34 +56,19 @@ Seleccione un patrón:
 
 > 1
 
-Seleccione tipo de notificación:
-1. Email
-2. SMS
-
-> 2
-
-[FACTORY] Instanciando SmsFactory
-[LOG] Preparando envío...
-[DEBUG] Usando NotificacionSms
-SMS enviado: Hola desde la consola con Factory Method
-[LOG] Envío completado.
+Seleccione ejemplo:
+1. Notificación por tipo (Email/SMS)
+2. Validación de documento empresarial
 ```
 
 ---
 
 ## ✅ Pruebas automatizadas
 
-El archivo `FactoryMethodTests.cs` contiene pruebas con `xUnit` para verificar:
-- La creación de instancias específicas (Email/SMS).
-- La ejecución del método `EnviarConLog` con sus logs.
-- El comportamiento completo de las fábricas.
-
----
-
-## 📌 Aplicaciones comunes
-- Envío de notificaciones por múltiples canales
-- Creación desacoplada de componentes
-- Procesamiento modular según tipo
+Cada ejemplo incluye pruebas con `xUnit` que verifican:
+- La creación del tipo correcto de objeto
+- El uso correcto de los métodos de la interfaz
+- La salida esperada por consola
 
 ---
 
