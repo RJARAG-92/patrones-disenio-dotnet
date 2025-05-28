@@ -21,10 +21,10 @@ El patrón **Factory Method** permite delegar la creación de objetos a subclase
 ## 📁 Estructura del patrón
 
 ```
-Product        -> Interfaz o clase abstracta común (INotificacion, IValidadorDocumento)
-ConcreteProduct -> Implementaciones concretas (NotificacionEmail, ValidadorFactura)
-Creator        -> Clase abstracta con método de fábrica (NotificacionFactory)
-ConcreteCreator -> Subclases que implementan el método de fábrica (EmailFactory)
+Product        -> Interfaz o clase abstracta común (INotificacion, IValidadorDocumento, IReporteGenerator)
+ConcreteProduct -> Implementaciones concretas (NotificacionEmail, ValidadorFactura, PdfReporteGenerator)
+Creator        -> Clase abstracta con método de fábrica (NotificacionFactory, ReporteFactory)
+ConcreteCreator -> Subclases que implementan el método de fábrica (EmailFactory, PdfFactory)
 ```
 
 ---
@@ -45,21 +45,24 @@ Ubicación: `FactoryMethod/Ejemplo2`
 - Cada tipo de documento tiene su propio validador con lógica especializada.
 - Se selecciona dinámicamente el validador adecuado usando una fábrica.
 
-### 📊 Comparativa entre Ejemplo 1 y Ejemplo 2
+### 📊 Ejemplo 3: Generación de reportes (real empresarial)
+Ubicación: `FactoryMethod/Ejemplo3`
 
-| Aspecto                      | Ejemplo 1: Notificaciones                            | Ejemplo 2: Validación de Documentos                           |
-| ---------------------------- | ---------------------------------------------------- | ------------------------------------------------------------- |
-| **Propósito**                | Elegir cómo enviar un mensaje (Email o SMS)          | Validar reglas de negocio según tipo de documento             |
-| **Tipo de creación**         | Objeto de tipo `INotificacion`                       | Objeto de tipo `IValidadorDocumento`                          |
-| **Complejidad del producto** | Simple, comportamiento directo (`Enviar`)            | Complejo, múltiples validaciones por tipo de documento        |
-| **Parámetro del método**     | Solo un `string mensaje`                             | Puede ser un objeto `Documento` con múltiples propiedades     |
-| **Tipo de fábrica**          | `NotificacionFactory` → `EmailFactory`, `SmsFactory` | `ValidadorFactoryConcreto` centralizada                       |
-| **Uso de subclases**         | Fábricas concretas heredan de `NotificacionFactory`  | Una única clase `ValidadorFactoryConcreto` maneja el switch   |
-| **Escenario real**           | Comunicación (SMS/Email)                             | Lógica empresarial, reglas de negocio                         |
-| **Contexto típico**          | Servicio o utilitario                                | Validaciones en un sistema transaccional (ERP, trámite, etc.) |
-| **Nivel de abstracción**     | Básico / estructural                                 | Empresarial / orientado al dominio                            |
-| **Nivel de realismo**        | Ideal para enseñar el patrón                         | Ideal para usar en sistemas reales                            |
+- Genera reportes en formatos **PDF**, **Excel** y **HTML**.
+- La lógica de exportación está desacoplada del cliente.
+- Es extensible a nuevos formatos como XML, CSV, JSON.
 
+
+### 📊 Comparativa entre Ejemplo 1, 2 y 3
+
+| Aspecto                      | Ejemplo 1: Notificaciones | Ejemplo 2: Validación de Documentos | Ejemplo 3: Generación de Reportes |
+|-----------------------------|----------------------------|--------------------------------------|-----------------------------------|
+| **Propósito**               | Enviar mensajes            | Validar documentos empresariales     | Exportar reportes en diferentes formatos |
+| **Tipo de creación**        | `INotificacion`            | `IValidadorDocumento`               | `IReporteGenerator`              |
+| **Parámetro del método**    | `string mensaje`           | `Documento` o ID                    | `string contenido`               |
+| **Uso de subclases**        | Fábricas concretas         | Fábrica centralizada                | Fábricas concretas               |
+| **Contexto típico**         | Servicios utilitarios      | Reglas de negocio                   | Exportación de datos             |
+| **Nivel de realismo**       | Básico                     | Empresarial                         | Empresarial                      |
 
 ---
 
@@ -75,6 +78,7 @@ Seleccione un patrón:
 Seleccione ejemplo:
 1. Notificación por tipo (Email/SMS)
 2. Validación de documento empresarial
+3. Generación de reporte
 ```
 
 ---
