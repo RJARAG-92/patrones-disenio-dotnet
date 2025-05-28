@@ -2,7 +2,7 @@
 
 namespace PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo2.Creator
 {
-    public abstract class ValidadorFactory
+    public abstract class ValidadorDocumentoFactory
     {
         public abstract IValidadorDocumento CrearValidador();
     }
