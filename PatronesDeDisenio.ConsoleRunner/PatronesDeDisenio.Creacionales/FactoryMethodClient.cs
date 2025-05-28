@@ -4,6 +4,8 @@ using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo2.ConcreteCreator;
 using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo2.Creator;
 using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo3.ConcreteCreator;
 using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo3.Creator;
+using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo4.ConcreteCreator;
+using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo4.Creator;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -16,6 +18,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Notificación por tipo (Email/SMS)");
             Console.WriteLine("2. Validación de documento empresarial");
             Console.WriteLine("3. Generación de reporte");
+            Console.WriteLine("4. Generación de Comprobante Electronico");
             Console.Write("Opción: ");
 
             var ejemplo = Console.ReadLine();
@@ -31,6 +34,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "3":
                     EjecutarEjemploReporte();
+                    break;
+                case "4":
+                    EjecutarEjemploComprobanteElectronico();
                     break;
                 default:
                     Console.WriteLine("Opción inválida");
@@ -102,6 +108,29 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 
             var generador = factory.CrearGenerador();
             generador.Generar("Contenido de ejemplo para el reporte");
+        }
+
+        private static void EjecutarEjemploComprobanteElectronico()
+        {
+            Console.WriteLine("Seleccione formato de comrpobante electronico:");
+            Console.WriteLine("1. Boleta");
+            Console.WriteLine("2. Factura");
+            Console.WriteLine("3. Nota Credito");
+            Console.Write("Opción: ");
+
+            var tipo = Console.ReadLine();
+            Console.WriteLine();
+
+            ComprobanteFactory factory = tipo switch
+            {
+                "1" => new BoletaFactory(),
+                "2" => new FacturaElectronicaFactory(),
+                "3" => new NotaCreditoFactory(),
+                _ => throw new InvalidOperationException("Formato inválido")
+            };
+
+            var generador = factory.CrearGenerador();
+            generador.Generar("Contenido para el comprobante");
         }
     }
 }

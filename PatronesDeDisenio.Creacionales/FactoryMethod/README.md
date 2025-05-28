@@ -52,6 +52,13 @@ Ubicación: `FactoryMethod/Ejemplo3`
 - La lógica de exportación está desacoplada del cliente.
 - Es extensible a nuevos formatos como XML, CSV, JSON.
 
+### 🧾 Ejemplo 4: Comprobantes Electrónicos (caso SUNAT)
+Ubicación: `FactoryMethod/Ejemplo4`
+
+- Genera comprobantes electrónicos: **Boleta**, **Factura** y **Nota de Crédito**.
+- La lógica de emisión de cada tipo está encapsulada en su propia clase.
+- Simula un escenario real en sistemas de facturación integrados a SUNAT.
+- Permite extender fácilmente con otros tipos como **Nota de Débito**.
 
 ### 📊 Comparativa entre Ejemplo 1, 2 y 3
 
