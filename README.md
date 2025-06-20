@@ -36,4 +36,10 @@ Proveer una referencia clara, educativa y reutilizable para comprender e impleme
 
 ---
 
-📗 Autor: Ricardo Jara Gaspar
+
+## 👤 Autor
+
+**Ricardo Jara Gaspar**  
+Ingeniero de Software especializado en .NET y Arquitectura de Software  
+[GitHub](https://github.com/RJARAG-92) · [LinkedIn](https://www.linkedin.com/in/ricardo-jara-gaspar-b7a515265/) · 🇵🇪 Perú
+
