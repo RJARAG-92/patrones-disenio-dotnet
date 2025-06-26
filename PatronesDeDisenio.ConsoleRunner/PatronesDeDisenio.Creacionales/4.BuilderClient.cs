@@ -4,6 +4,8 @@ using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Builder;
 using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Director;
 using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Builders;
 using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Director;
+using PatronesDeDisenio.Creacionales._4.Builder._4.ModuleConfiguracionEntorno.Builders;
+using PatronesDeDisenio.Creacionales._4.Builder._4.ModuleConfiguracionEntorno.Director;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -18,10 +20,14 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Combo de Restaurante");
             Console.WriteLine("2. Generador de Reportes");
             Console.WriteLine("3. Contratos Personalizados");
+            Console.WriteLine("4. Configuración por Entorno");
             Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine();
             Console.Write("\nOpción: ");
+
             var opcion = Console.ReadLine();
 
+            Console.Clear();
             switch (opcion)
             {
                 case "1":
@@ -32,6 +38,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "3":
                     EjecutarContratosPersonalizados();
+                    break;
+                case "4":
+                    EjecutarConfiguracionEntorno();
                     break;
                 case "0":
                     return;
@@ -49,12 +58,12 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 
         private static void EjecutarComboRestaurante()
         {
-            Console.Clear();
             Console.WriteLine("== Ejemplo Builder: Combo de Restaurante ==");
             Console.WriteLine("Seleccione tipo de combo:");
             Console.WriteLine("1. Combo Clásico");
             Console.WriteLine("2. Combo Infantil");
             Console.WriteLine("3. Combo Ejecutivo");
+            Console.WriteLine();
             Console.Write("\nOpción: ");
 
             IComboBuilder builder = Console.ReadLine() switch
@@ -75,10 +84,10 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 
         private static void EjecutarGeneradorReporte()
         {
-            Console.Clear();
             Console.WriteLine("== Ejemplo Builder: Generador de Reportes ==");
             Console.WriteLine("Seleccione el formato:");
             Console.WriteLine("1. PDF\n2. Excel\n3. HTML");
+            Console.WriteLine();
             Console.Write("Opción: ");
             var opcion = Console.ReadLine();
 
@@ -99,12 +108,12 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         }
         private static void EjecutarContratosPersonalizados()
         {
-            Console.Clear();
             Console.WriteLine("== Ejemplo Builder: Contratos Personalizados ==");
             Console.WriteLine("Seleccione el tipo de contrato:");
             Console.WriteLine("1. Laboral");
             Console.WriteLine("2. Alquiler");
             Console.WriteLine("3. Servicios");
+            Console.WriteLine();
             Console.Write("Opción: ");
             var opcion = Console.ReadLine();
 
@@ -122,6 +131,31 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             var contrato = builder.ObtenerContrato();
             Console.WriteLine();
             contrato.Mostrar();
+        }
+        private static void EjecutarConfiguracionEntorno()
+        {
+            Console.WriteLine("== Ejemplo Builder: Configuración por Entorno ==");
+
+            Console.WriteLine("Seleccione entorno:");
+            Console.WriteLine("1. Desarrollo\n2. QA\n3. Producción");
+            Console.WriteLine();
+            Console.Write("Opción: ");
+            var opcion = Console.ReadLine();
+
+            IConfiguracionBuilder builder = opcion switch
+            {
+                "1" => new DevConfigBuilder(),
+                "2" => new QaConfigBuilder(),
+                "3" => new ProdConfigBuilder(),
+                _ => throw new InvalidOperationException("Opción inválida")
+            };
+
+            var director = new ConfiguracionDirector();
+            director.ConstruirConfiguracion(builder);
+
+            var configuracion = builder.ObtenerConfiguracion();
+            Console.WriteLine();
+            configuracion.Mostrar();
         }
     }
 }
