@@ -35,7 +35,7 @@ Cliente              -> Usa la fábrica abstracta y productos sin conocer las cl
 ## 📦 Ejemplos incluidos
 
 ### 🧪 Ejemplo 1: Pasarelas de Pago
-Ubicación: `AbstractFactory/Ejemplo1`
+Ubicación: `AbstractFactory/1.ModulePasarelaPago`
 
 - Crea un `CheckoutService` capaz de trabajar con **PayPal** o **Stripe** sin cambiar la lógica del cliente.
 - Cada pasarela implementa su propio `IPaymentProcessor` y `IReceiptGenerator`.
@@ -43,7 +43,7 @@ Ubicación: `AbstractFactory/Ejemplo1`
 ---
 
 ### 🧠 Ejemplo 2: Conexiones a bases de datos
-Ubicación: `AbstractFactory/Ejemplo2`
+Ubicación: `AbstractFactory/2.ModuleConexionBD`
 
 - Simula una conexión a **SQL Server** o **PostgreSQL** usando fábricas abstractas.
 - Proporciona objetos `IDbConnection`, `IDbCommand`, `IDbReader` sin conocer la implementación exacta.
@@ -51,7 +51,7 @@ Ubicación: `AbstractFactory/Ejemplo2`
 ---
 
 ### 🖥️ Ejemplo 3: Interfaces gráficas multiplataforma (GUI)
-Ubicación: `AbstractFactory/Ejemplo3`
+Ubicación: `AbstractFactory/3.ModuleGuiMultiplataforma`
 
 - Simula una aplicación que debe funcionar en **Windows** y **Linux**.
 - Cada sistema tiene su propia fábrica que crea botones y cuadros de texto específicos.
@@ -59,7 +59,7 @@ Ubicación: `AbstractFactory/Ejemplo3`
 
 ---
 ### 📈 Ejemplo 4: Informes financieros por región
-Ubicación: `AbstractFactory/Ejemplo4`
+Ubicación: `AbstractFactory/4.ModuleInformeFinanciero`
 
 - Genera reportes financieros adaptados a **Europa**, **Latinoamérica** y **Asia**.
 - Cada región produce encabezados, cálculos y pies de página personalizados.
@@ -68,7 +68,7 @@ Ubicación: `AbstractFactory/Ejemplo4`
 ---
 
 ### 📊 Ejemplo 5: Sistema de reportes exportables (empresarial real)
-Ubicación: `AbstractFactory/Ejemplo7`
+Ubicación: `AbstractFactory/5.ModuleExportadorReportes`
 
 - Exporta reportes en formatos **PDF**, **Excel** y **HTML**.
 - Cada formato implementa su propia lógica de:
@@ -83,7 +83,11 @@ Ubicación: `AbstractFactory/Ejemplo7`
 
 ```
 Seleccione patrón:
-1. Abstract Factory
+1. Factory Method
+2. Abstract Factory
+3. Singleton
+
+> 2
 
 Seleccione ejemplo:
 1. Pasarela de Pago (PayPal / Stripe)
@@ -103,4 +107,9 @@ Cada ejemplo puede ser adaptado para pruebas automatizadas de sus productos:
 
 ---
 
-📗 Autor: Ricardo Jara Gaspar
+
+## 👤 Autor
+
+**Ricardo Jara Gaspar**  
+Ingeniero de Software especializado en .NET y Arquitectura de Software  
+[GitHub](https://github.com/RJARAG-92) · [LinkedIn](https://www.linkedin.com/in/ricardo-jara-gaspar-b7a515265/) · 🇵🇪 Perú

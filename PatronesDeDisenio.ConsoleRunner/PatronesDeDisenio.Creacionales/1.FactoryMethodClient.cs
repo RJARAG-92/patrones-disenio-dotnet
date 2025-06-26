@@ -13,18 +13,21 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
     {
         public static void Mostrar()
         {
+            Console.Clear();
             Console.WriteLine("=== FACTORY METHOD ===");
             Console.WriteLine("Seleccione ejemplo:");
             Console.WriteLine("1. Notificación por tipo (Email/SMS)");
             Console.WriteLine("2. Validación de documento empresarial");
             Console.WriteLine("3. Generación de reporte");
             Console.WriteLine("4. Generación de Comprobante Electronico");
+            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
-            var ejemplo = Console.ReadLine();
-            Console.WriteLine();
+            var seleccion = Console.ReadLine();
+            Console.Clear();
 
-            switch (ejemplo)
+            switch (seleccion)
             {
                 case "1":
                     EjecutarEjemploNotificacion();
@@ -38,10 +41,19 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 case "4":
                     EjecutarEjemploComprobanteElectronico();
                     break;
+                case "0":
+                    return;
                 default:
-                    Console.WriteLine("Opción inválida");
+                    Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    Mostrar();
                     break;
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();
+            Mostrar();
         }
 
         private static void EjecutarEjemploNotificacion()
@@ -49,6 +61,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("Seleccione tipo de notificación:");
             Console.WriteLine("1. Email");
             Console.WriteLine("2. SMS");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var tipo = Console.ReadLine();
@@ -70,6 +83,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Factura");
             Console.WriteLine("2. Contrato");
             Console.WriteLine("3. Memorando");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var tipo = Console.ReadLine();
@@ -93,6 +107,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. PDF");
             Console.WriteLine("2. Excel");
             Console.WriteLine("3. HTML");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var tipo = Console.ReadLine();
@@ -116,6 +131,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Boleta");
             Console.WriteLine("2. Factura");
             Console.WriteLine("3. Nota Credito");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var tipo = Console.ReadLine();

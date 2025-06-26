@@ -13,14 +13,14 @@ using PatronesDeDisenio.Creacionales._2.AbstractFactory.Ejemplo4.ConcreteFactory
 using PatronesDeDisenio.Creacionales._2.AbstractFactory.Ejemplo5;
 using PatronesDeDisenio.Creacionales._2.AbstractFactory.Ejemplo5.Cliente;
 using PatronesDeDisenio.Creacionales._2.AbstractFactory.Ejemplo5.ConcreteFactory;
-using PatronesDeDisenio.Creacionales.FactoryMethod.Ejemplo3.ConcreteCreator;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
-    public static class AbstractFactory
+    public static class AbstractFactoryClient
     {
         public static void Mostrar()
         {
+            Console.Clear();
             Console.WriteLine("=== ABSTRACT FACTORY ===");
             Console.WriteLine("Seleccione ejemplo:");
             Console.WriteLine("1. Pasarelas de Pago");
@@ -28,10 +28,12 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("3. Interfaces gráficas multiplataforma");
             Console.WriteLine("4. Generación de informes financieros por región");
             Console.WriteLine("5. Sistema de reportes exportables");
+            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var seleccion = Console.ReadLine();
-            Console.WriteLine();
+            Console.Clear();
 
             switch (seleccion)
             {
@@ -50,16 +52,26 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 case "5":
                     EjecutarEjemploReporteExportable();
                     break;
+                case "0":
+                    return;
                 default:
-                    Console.WriteLine("Opción inválida.");
+                    Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    Mostrar();
                     break;
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();
+            Mostrar();
         }
         private static void EjecutarEjemploPasarelaPago()
         {
             Console.WriteLine("Seleccione la pasarela de pago:");
             Console.WriteLine("1. PayPal");
             Console.WriteLine("2. Stripe");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var opcion = Console.ReadLine();
@@ -80,6 +92,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("Seleccione base de datos:");
             Console.WriteLine("1. SQL Server");
             Console.WriteLine("2. PostgreSQL");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var opcion = Console.ReadLine();
@@ -100,6 +113,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("Seleccione el sistema operativo:");
             Console.WriteLine("1. Windows");
             Console.WriteLine("2. Linux");
+            Console.WriteLine();
             Console.Write("Opción: ");
 
             var opcion = Console.ReadLine();
@@ -121,7 +135,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Europa");
             Console.WriteLine("2. Latinoamérica");
             Console.WriteLine("3. Asia");
+            Console.WriteLine();
             Console.Write("Opción: ");
+
             var opcion = Console.ReadLine();
             Console.WriteLine();
 
@@ -142,7 +158,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. PDF");
             Console.WriteLine("2. Excel");
             Console.WriteLine("3. HTML");
+            Console.WriteLine();
             Console.Write("Opción: ");
+
             var opcion = Console.ReadLine();
             Console.WriteLine();
 
