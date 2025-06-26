@@ -1,6 +1,7 @@
 ﻿using PatronesDeDisenio.Creacionales._5.Prototype._1.ModulePlantillaDocumento.Prototypes;
 using PatronesDeDisenio.Creacionales._5.Prototype._2.ModuleProductoConfigurado.Prototypes;
 using PatronesDeDisenio.Creacionales._5.Prototype._3.ModuleUsuarioPerfilado.Prototypes;
+using PatronesDeDisenio.Creacionales._5.Prototype._4.ModuleConfiguracionAmbiente.Prototypes;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -13,6 +14,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Plantillas de Documentos");
             Console.WriteLine("2. Producto Configurado (Laptop)");
             Console.WriteLine("3. Usuario Perfilado");
+            Console.WriteLine("4. Configuración de Ambientes");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("Opción: ");
@@ -30,6 +32,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "3":
                     EjecutarEjemploUsuarioPerfilado();
+                    break;
+                case "4":
+                    EjecutarEjemploConfiguracion();
                     break;
                 case "0":
                     return;
@@ -98,6 +103,27 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             admin.Mostrar();
             auditor.Mostrar();
 
+        }
+        private static void EjecutarEjemploConfiguracion()
+        {
+            Console.WriteLine("=== PROTOTYPE - Configuración de Ambientes ===\n");
+
+            var configBase = new ConfiguracionSistema();
+
+            var qa = configBase.Clonar() as ConfiguracionSistema;
+            qa!.NombreAmbiente = "QA";
+            qa.UrlBase = "https://qa.api.empresa.com";
+            qa.ActivarDebug = false;
+
+            var produccion = configBase.Clonar() as ConfiguracionSistema;
+            produccion!.NombreAmbiente = "Producción";
+            produccion.UrlBase = "https://api.empresa.com";
+            produccion.ActivarDebug = false;
+            produccion.ModulosActivos.Add("Reportes");
+
+            configBase.Mostrar();
+            qa.Mostrar();
+            produccion.Mostrar();
         }
     }
 }
