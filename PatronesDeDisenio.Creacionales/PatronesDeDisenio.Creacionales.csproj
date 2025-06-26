@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="4.Builder\3.ModuleContratoBuilder\Product\" />
+    <Folder Include="5.Prototype\3.ModuleUsuarioPerfilado\" />
   </ItemGroup>
 
 </Project>

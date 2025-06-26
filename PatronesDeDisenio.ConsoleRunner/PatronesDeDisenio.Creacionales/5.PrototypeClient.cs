@@ -1,4 +1,5 @@
 ﻿using PatronesDeDisenio.Creacionales._5.Prototype._1.ModulePlantillaDocumento.Prototypes;
+using PatronesDeDisenio.Creacionales._5.Prototype._2.ModuleProductoConfigurado.Prototypes;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -7,12 +8,11 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         public static void Mostrar()
         {
             Console.Clear();
-            Console.WriteLine("=== PROTOTYPE - Ejemplos ===\n");
+            Console.WriteLine("=== PATRÓN PROTOTYPE ===\n");
             Console.WriteLine("1. Plantillas de Documentos");
             Console.WriteLine("2. Producto Configurado (Laptop)");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
-
             Console.Write("Opción: ");
 
             var opcion = Console.ReadLine();
@@ -58,28 +58,23 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         }
         private static void EjecutarEjemploLaptop()
         {
-            //Console.WriteLine("=== PROTOTYPE - Producto Configurado ===\n");
+            Console.WriteLine("=== PROTOTYPE - Producto Configurado (Laptop) ===\n");
 
-            //var laptopBase = new LaptopConfigurada();
+            var laptopBase = new LaptopConfigurada();
 
-            //var laptopGamer = laptopBase.Clonar() as LaptopConfigurada;
-            //laptopGamer!.Modelo = "Laptop X1 Gamer Edition";
-            //laptopGamer.RAM = 32;
-            //laptopGamer.TarjetaGraficaDedicada = true;
+            var laptopGamer = laptopBase.Clonar() as LaptopConfigurada;
+            laptopGamer!.Modelo = "Laptop X1 Gamer Edition";
+            laptopGamer.RAM = 32;
+            laptopGamer.TarjetaGraficaDedicada = true;
 
-            //var laptopEconomica = laptopBase.Clonar() as LaptopConfigurada;
-            //laptopEconomica!.Modelo = "Laptop X1 Eco";
-            //laptopEconomica.RAM = 8;
-            //laptopEconomica.Almacenamiento = 256;
+            var laptopEconomica = laptopBase.Clonar() as LaptopConfigurada;
+            laptopEconomica!.Modelo = "Laptop X1 Eco";
+            laptopEconomica.RAM = 8;
+            laptopEconomica.Almacenamiento = 256;
 
-            //Console.WriteLine("Producto Base (Laptop X1):");
-            //laptopBase.Mostrar();
-
-            //Console.WriteLine("Producto Clonado (Laptop X1 Gamer Edition):");
-            //laptopGamer.Mostrar();
-
-            //Console.WriteLine("Producto Clonado (Laptop X1 Eco):");
-            //laptopEconomica.Mostrar();
+            laptopBase.Mostrar();
+            laptopGamer.Mostrar();
+            laptopEconomica.Mostrar();
         }
     }
 }
