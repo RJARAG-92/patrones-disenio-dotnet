@@ -2,6 +2,7 @@
 using PatronesDeDisenio.Creacionales._5.Prototype._2.ModuleProductoConfigurado.Prototypes;
 using PatronesDeDisenio.Creacionales._5.Prototype._3.ModuleUsuarioPerfilado.Prototypes;
 using PatronesDeDisenio.Creacionales._5.Prototype._4.ModuleConfiguracionAmbiente.Prototypes;
+using PatronesDeDisenio.Creacionales._5.Prototype._5.ModulePlantillaEmail.Prototypes;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -15,6 +16,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("2. Producto Configurado (Laptop)");
             Console.WriteLine("3. Usuario Perfilado");
             Console.WriteLine("4. Configuración de Ambientes");
+            Console.WriteLine("5. Plantilla de Email");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("Opción: ");
@@ -35,6 +37,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "4":
                     EjecutarEjemploConfiguracion();
+                    break;
+                case "5":
+                    EjecutarEjemploEmail();
                     break;
                 case "0":
                     return;
@@ -124,6 +129,25 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             configBase.Mostrar();
             qa.Mostrar();
             produccion.Mostrar();
+        }
+        private static void EjecutarEjemploEmail()
+        { 
+            Console.WriteLine("=== PROTOTYPE - Plantilla de Email ===\n");
+
+            var plantillaBase = new PlantillaEmail();
+
+            var emailMarketing = plantillaBase.Clonar() as PlantillaEmail;
+            emailMarketing!.Destinatario = "cliente1@empresa.com";
+            emailMarketing.Cuerpo = "¡Conoce nuestras promociones semanales!";
+
+            var emailRecuperacion = plantillaBase.Clonar() as PlantillaEmail;
+            emailRecuperacion!.Destinatario = "soporte@empresa.com";
+            emailRecuperacion.Asunto = "Recuperación de contraseña";
+            emailRecuperacion.Cuerpo = "Haz clic en el siguiente enlace para cambiar tu contraseña.";
+
+            plantillaBase.Enviar();
+            emailMarketing.Enviar();
+            emailRecuperacion.Enviar(); 
         }
     }
 }
