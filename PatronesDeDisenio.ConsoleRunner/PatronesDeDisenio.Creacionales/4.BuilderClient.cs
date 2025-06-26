@@ -2,6 +2,8 @@
 using PatronesDeDisenio.Creacionales._4.Builder._1.ModuleComboRestaurante.Director;
 using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Builder;
 using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Director;
+using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Builders;
+using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Director;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -15,6 +17,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("Seleccione el ejemplo:");
             Console.WriteLine("1. Combo de Restaurante");
             Console.WriteLine("2. Generador de Reportes");
+            Console.WriteLine("3. Contratos Personalizados");
             Console.WriteLine("0. Volver al menú principal");
             Console.Write("\nOpción: ");
             var opcion = Console.ReadLine();
@@ -23,6 +26,12 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             {
                 case "1":
                     EjecutarComboRestaurante();
+                    break;
+                case "2":
+                    EjecutarGeneradorReporte();
+                    break;
+                case "3":
+                    EjecutarContratosPersonalizados();
                     break;
                 case "0":
                     return;
@@ -64,10 +73,10 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             combo.Mostrar();
         }
 
-        private static void EjecutarGenerarReporte()
+        private static void EjecutarGeneradorReporte()
         {
+            Console.Clear();
             Console.WriteLine("== Ejemplo Builder: Generador de Reportes ==");
-
             Console.WriteLine("Seleccione el formato:");
             Console.WriteLine("1. PDF\n2. Excel\n3. HTML");
             Console.Write("Opción: ");
@@ -87,6 +96,32 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             var reporte = builder.ObtenerReporte();
             Console.WriteLine();
             reporte.Mostrar();
+        }
+        private static void EjecutarContratosPersonalizados()
+        {
+            Console.Clear();
+            Console.WriteLine("== Ejemplo Builder: Contratos Personalizados ==");
+            Console.WriteLine("Seleccione el tipo de contrato:");
+            Console.WriteLine("1. Laboral");
+            Console.WriteLine("2. Alquiler");
+            Console.WriteLine("3. Servicios");
+            Console.Write("Opción: ");
+            var opcion = Console.ReadLine();
+
+            IContratoBuilder builder = opcion switch
+            {
+                "1" => new ContratoLaboralBuilder(),
+                "2" => new ContratoAlquilerBuilder(),
+                "3" => new ContratoServiciosBuilder(),
+                _ => throw new InvalidOperationException("Tipo inválido")
+            };
+
+            var director = new ContratoDirector();
+            director.ConstruirContratoCompleto(builder);
+
+            var contrato = builder.ObtenerContrato();
+            Console.WriteLine();
+            contrato.Mostrar();
         }
     }
 }
