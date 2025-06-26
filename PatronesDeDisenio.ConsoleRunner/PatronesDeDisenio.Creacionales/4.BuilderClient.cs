@@ -1,5 +1,7 @@
 ﻿using PatronesDeDisenio.Creacionales._4.Builder._1.ModuleComboRestaurante.Builders;
 using PatronesDeDisenio.Creacionales._4.Builder._1.ModuleComboRestaurante.Director;
+using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Builder;
+using PatronesDeDisenio.Creacionales._4.Builder._2.ModuleReportBuilder.Director;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -12,6 +14,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("=== PATRÓN BUILDER ===");
             Console.WriteLine("Seleccione el ejemplo:");
             Console.WriteLine("1. Combo de Restaurante");
+            Console.WriteLine("2. Generador de Reportes");
             Console.WriteLine("0. Volver al menú principal");
             Console.Write("\nOpción: ");
             var opcion = Console.ReadLine();
@@ -59,6 +62,31 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             var combo = builder.ObtenerCombo();
             Console.WriteLine();
             combo.Mostrar();
+        }
+
+        private static void EjecutarGenerarReporte()
+        {
+            Console.WriteLine("== Ejemplo Builder: Generador de Reportes ==");
+
+            Console.WriteLine("Seleccione el formato:");
+            Console.WriteLine("1. PDF\n2. Excel\n3. HTML");
+            Console.Write("Opción: ");
+            var opcion = Console.ReadLine();
+
+            IReporteBuilder builder = opcion switch
+            {
+                "1" => new PdfReporteBuilder(),
+                "2" => new ExcelReporteBuilder(),
+                "3" => new HtmlReporteBuilder(),
+                _ => throw new InvalidOperationException("Formato inválido")
+            };
+
+            var director = new ReporteDirector();
+            director.ConstruirReporteCompleto(builder);
+
+            var reporte = builder.ObtenerReporte();
+            Console.WriteLine();
+            reporte.Mostrar();
         }
     }
 }
