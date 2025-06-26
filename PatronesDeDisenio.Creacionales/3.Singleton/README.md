@@ -37,21 +37,33 @@ Ubicación: `Singleton/1.ModuleLoggerCentralizado`
 - La clase `Logger` es inmutable, segura y perezosa (`Lazy<T>`).
 - Ideal para centralizar la trazabilidad de eventos en aplicaciones de consola o backend.
 
-### 🧪 Ejemplo 2: Configuración Global  
+### ⚙️ Ejemplo 2: Configuración Global  
 Ubicación: `Singleton/2.ModuleConfiguracionGlobal`
-- `ConfiguracionGlobal` contiene:
-  - `Entorno`: nombre del entorno (producción, desarrollo, etc.)
-  - `ConexionBD`: cadena de conexión a la base de datos
-  - `HabilitarLogs`: flag para controlar trazas
-- Los servicios consumen esta instancia sin necesidad de pasarla como parámetro.
 
-### 🧪 Ejemplo 3: Gestor de Sesión de Usuario  
+- Simula acceso centralizado a parámetros de configuración como cadena de conexión, entorno y flags de logging.
+- `ConfiguracionGlobal.Instance` permite consultar desde cualquier clase.
+- Usado por `ServicioInicio` y `ServicioConexion`.
+
+### 👤 Ejemplo 3: Gestor de Sesión de Usuario  
 Ubicación: `Singleton/3.ModuleSessionManager`
 
-- `Login(usuario, rol)` almacena el usuario actual.
-- `Logout()` limpia la sesión.
-- `HaySesionActiva` permite verificar el estado actual.
-- Servicios distintos acceden a `SessionManager.Instance` para actuar según la sesión.
+- Controla el inicio y cierre de sesión del usuario actual en toda la aplicación.
+- `SessionManager.Instance.UsuarioActual` es consultado por distintos servicios.
+- Simula una sesión única accesible desde distintos puntos.
+
+### 📦 Ejemplo 4: Gestor de Caché en Memoria  
+Ubicación: `Singleton/4.ModuleMemoryCacheManager`
+
+- Implementa un sistema simple de caché en memoria con `Guardar`, `Obtener`, `Eliminar` y `Limpiar`.
+- Compartido por `ServicioProducto` y `ServicioCliente`.
+- Simula un comportamiento similar a `IMemoryCache` para apps pequeñas o locales.
+
+- ### 🆔 Ejemplo 5: Generador de Identificadores Únicos  
+Ubicación: `Singleton/5.ModuleUniqueIdGenerator`
+
+- Genera identificadores secuenciales y únicos, protegidos con `lock` para concurrencia.
+- Compartido por `ServicioTicket` y `ServicioDocumento`.
+- Útil para simular códigos únicos sin depender de base de datos.
 
 ---
 
@@ -69,6 +81,8 @@ Seleccione ejemplo:
 1. Logger Centralizado
 2. Configuración Global 
 3. Gestor de Sesión de Usuario  
+4. Gestor de Caché en Memoria
+5. Generador de Identificadores Únicos
 ```
 
 ---

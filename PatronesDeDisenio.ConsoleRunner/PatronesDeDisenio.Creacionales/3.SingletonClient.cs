@@ -2,6 +2,7 @@
 using PatronesDeDisenio.Creacionales._3.Singleton._2.ModuleConfiguracionGlobal;
 using PatronesDeDisenio.Creacionales._3.Singleton._3.ModuleSessionManager;
 using PatronesDeDisenio.Creacionales._3.Singleton._4.ModuleMemoryCacheManager;
+using PatronesDeDisenio.Creacionales._3.Singleton._5.ModuleUniqueIdGenerator;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -16,6 +17,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("2. Configuración Global");
             Console.WriteLine("3. Gestor de Sesión de Usuario");
             Console.WriteLine("4. Gestor de Caché");
+            Console.WriteLine("5. Generador de Identificadores Únicos");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("Opción: ");
@@ -36,6 +38,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "4":
                     EjecutarGestorCache();
+                    break;
+                case "5":
+                    EjecutarGeneradorIdsUnico();
                     break;
                 case "0":
                     return;
@@ -99,6 +104,19 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 
             var servicioCliente = new ServicioCliente();
             servicioCliente.MostrarProductosDesdeCache();
+        }
+
+        private static void EjecutarGeneradorIdsUnico()
+        {
+            Console.WriteLine("== Ejemplo Singleton: Generador de Identificadores Únicos ==");
+
+            var ticket = new ServicioTicket();
+            var doc = new ServicioDocumento();
+
+            ticket.CrearTicket();
+            doc.CrearDocumento();
+            ticket.CrearTicket();
+
         }
     }
 }
