@@ -83,7 +83,11 @@ Ubicación: `AbstractFactory/5.ModuleExportadorReportes`
 
 ```
 Seleccione patrón:
-1. Abstract Factory
+1. Factory Method
+2. Abstract Factory
+3. Singleton
+
+> 2
 
 Seleccione ejemplo:
 1. Pasarela de Pago (PayPal / Stripe)

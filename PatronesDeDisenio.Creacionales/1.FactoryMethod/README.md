@@ -78,7 +78,8 @@ Ubicación: `FactoryMethod/4.ModuleComprobanteSUNAT`
 ```bash
 Seleccione un patrón:
 1. Factory Method
-2. Salir
+2. Abstract Factory 
+3. Singleton
 
 > 1
 
