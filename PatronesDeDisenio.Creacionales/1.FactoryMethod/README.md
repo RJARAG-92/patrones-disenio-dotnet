@@ -32,28 +32,28 @@ ConcreteCreator -> Subclases que implementan el método de fábrica (EmailFactor
 ## 📦 Ejemplos incluidos
 
 ### 🧪 Ejemplo 1: Notificaciones (básico)
-Ubicación: `FactoryMethod/Ejemplo1`
+Ubicación: `FactoryMethod/1.ModuleNotificacion`
 
 - Crea notificaciones por **Email** o **SMS** según la fábrica seleccionada.
 - Demuestra el uso de métodos reutilizables (`EnviarConLog`) en la clase abstracta.
 - Se usa en consola y en pruebas con `xUnit`.
 
 ### 🏢 Ejemplo 2: Validación de documentos empresariales (real)
-Ubicación: `FactoryMethod/Ejemplo2`
+Ubicación: `FactoryMethod/2.ModuleValidacionDocumentos`
 
 - Valida distintos tipos de documentos: **Factura**, **Contrato**, **Memorando**.
 - Cada tipo de documento tiene su propio validador con lógica especializada.
 - Se selecciona dinámicamente el validador adecuado usando una fábrica.
 
 ### 📊 Ejemplo 3: Generación de reportes (real empresarial)
-Ubicación: `FactoryMethod/Ejemplo3`
+Ubicación: `FactoryMethod/3.ModuleReporteDocumentos`
 
 - Genera reportes en formatos **PDF**, **Excel** y **HTML**.
 - La lógica de exportación está desacoplada del cliente.
 - Es extensible a nuevos formatos como XML, CSV, JSON.
 
 ### 🧾 Ejemplo 4: Comprobantes Electrónicos (caso SUNAT)
-Ubicación: `FactoryMethod/Ejemplo4`
+Ubicación: `FactoryMethod/4.ModuleComprobanteSUNAT`
 
 - Genera comprobantes electrónicos: **Boleta**, **Factura** y **Nota de Crédito**.
 - La lógica de emisión de cada tipo está encapsulada en su propia clase.
@@ -99,4 +99,8 @@ Cada ejemplo incluye pruebas con `xUnit` que verifican:
 
 ---
 
-📗 Autor: Ricardo Jara Gaspar
+## 👤 Autor
+
+**Ricardo Jara Gaspar**  
+Ingeniero de Software especializado en .NET y Arquitectura de Software  
+[GitHub](https://github.com/RJARAG-92) · [LinkedIn](https://www.linkedin.com/in/ricardo-jara-gaspar-b7a515265/) · 🇵🇪 Perú
