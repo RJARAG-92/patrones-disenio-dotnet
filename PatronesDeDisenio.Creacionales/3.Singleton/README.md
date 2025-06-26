@@ -47,6 +47,7 @@ Ubicación: `Singleton/2.ModuleConfiguracionGlobal`
 
 ### 🧪 Ejemplo 3: Gestor de Sesión de Usuario  
 Ubicación: `Singleton/3.ModuleSessionManager`
+
 - `Login(usuario, rol)` almacena el usuario actual.
 - `Logout()` limpia la sesión.
 - `HaySesionActiva` permite verificar el estado actual.

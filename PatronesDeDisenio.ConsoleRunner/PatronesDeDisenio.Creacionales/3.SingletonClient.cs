@@ -1,6 +1,7 @@
 ﻿using PatronesDeDisenio.Creacionales._3.Singleton._1.ModuleLoggerCentralizado;
 using PatronesDeDisenio.Creacionales._3.Singleton._2.ModuleConfiguracionGlobal;
 using PatronesDeDisenio.Creacionales._3.Singleton._3.ModuleSessionManager;
+using PatronesDeDisenio.Creacionales._3.Singleton._4.ModuleMemoryCacheManager;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -14,6 +15,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("1. Logger Centralizado");
             Console.WriteLine("2. Configuración Global");
             Console.WriteLine("3. Gestor de Sesión de Usuario");
+            Console.WriteLine("4. Gestor de Caché");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("Opción: ");
@@ -31,6 +33,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "3":
                     EjecutarGestorSesionUsuario();
+                    break;
+                case "4":
+                    EjecutarGestorCache();
                     break;
                 case "0":
                     return;
@@ -83,6 +88,17 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 
             auth.Logout();
             perfil.MostrarPerfil();
+        }
+
+        private static void EjecutarGestorCache()
+        {
+            Console.WriteLine("== Ejemplo Singleton: Gestor de Caché ==");
+
+            var servicioProducto = new ServicioProducto();
+            servicioProducto.CargarProductos();
+
+            var servicioCliente = new ServicioCliente();
+            servicioCliente.MostrarProductosDesdeCache();
         }
     }
 }
