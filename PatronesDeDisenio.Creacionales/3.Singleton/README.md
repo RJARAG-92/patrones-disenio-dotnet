@@ -45,6 +45,12 @@ Ubicación: `Singleton/2.ModuleConfiguracionGlobal`
   - `HabilitarLogs`: flag para controlar trazas
 - Los servicios consumen esta instancia sin necesidad de pasarla como parámetro.
 
+### 🧪 Ejemplo 3: Gestor de Sesión de Usuario  
+Ubicación: `Singleton/3.ModuleSessionManager`
+- `Login(usuario, rol)` almacena el usuario actual.
+- `Logout()` limpia la sesión.
+- `HaySesionActiva` permite verificar el estado actual.
+- Servicios distintos acceden a `SessionManager.Instance` para actuar según la sesión.
 
 ---
 
@@ -60,8 +66,8 @@ Seleccione un patrón:
 
 Seleccione ejemplo:
 1. Logger Centralizado
-2. 
-3. 
+2. Configuración Global 
+3. Gestor de Sesión de Usuario  
 ```
 
 ---
