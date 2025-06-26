@@ -1,5 +1,6 @@
 ﻿using PatronesDeDisenio.Creacionales._5.Prototype._1.ModulePlantillaDocumento.Prototypes;
 using PatronesDeDisenio.Creacionales._5.Prototype._2.ModuleProductoConfigurado.Prototypes;
+using PatronesDeDisenio.Creacionales._5.Prototype._3.ModuleUsuarioPerfilado.Prototypes;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -11,6 +12,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("=== PATRÓN PROTOTYPE ===\n");
             Console.WriteLine("1. Plantillas de Documentos");
             Console.WriteLine("2. Producto Configurado (Laptop)");
+            Console.WriteLine("3. Usuario Perfilado");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("Opción: ");
@@ -26,12 +28,14 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 case "2":
                     EjecutarEjemploLaptop();
                     break;
-                case "0":
+                case "3":
+                    EjecutarEjemploUsuarioPerfilado();
                     break;
+                case "0":
+                    return;
                 default:
                     Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
                     Console.ReadKey();
-                    Mostrar();
                     break;
             }
 
@@ -75,6 +79,25 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             laptopBase.Mostrar();
             laptopGamer.Mostrar();
             laptopEconomica.Mostrar();
+        }
+        private static void EjecutarEjemploUsuarioPerfilado()
+        {
+            Console.WriteLine("=== PROTOTYPE - Usuario Perfilado ===\n");
+
+            var perfilBase = new UsuarioBase();
+
+            var admin = perfilBase.Clonar() as UsuarioBase;
+            admin!.Nombre = "Administrador";
+            admin.Permisos.AddRange(new[] { "Crear", "Eliminar", "Auditar" });
+
+            var auditor = perfilBase.Clonar() as UsuarioBase;
+            auditor!.Nombre = "Auditor";
+            auditor.Permisos.Add("Revisar Logs");
+
+            perfilBase.Mostrar();
+            admin.Mostrar();
+            auditor.Mostrar();
+
         }
     }
 }
