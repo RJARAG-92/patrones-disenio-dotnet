@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="4.Builder\3.ModuleContratoBuilder\Product\" />
+  </ItemGroup>
+
 </Project>
