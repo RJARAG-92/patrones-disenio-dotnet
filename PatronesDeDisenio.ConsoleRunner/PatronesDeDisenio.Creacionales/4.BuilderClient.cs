@@ -6,6 +6,8 @@ using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Builder
 using PatronesDeDisenio.Creacionales._4.Builder._3.ModuleContratoBuilder.Director;
 using PatronesDeDisenio.Creacionales._4.Builder._4.ModuleConfiguracionEntorno.Builders;
 using PatronesDeDisenio.Creacionales._4.Builder._4.ModuleConfiguracionEntorno.Director;
+using PatronesDeDisenio.Creacionales._4.Builder._5.ModuleDocumentoBuilder.Builders;
+using PatronesDeDisenio.Creacionales._4.Builder._5.ModuleDocumentoBuilder.Director;
 
 namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
 {
@@ -21,6 +23,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("2. Generador de Reportes");
             Console.WriteLine("3. Contratos Personalizados");
             Console.WriteLine("4. Configuración por Entorno");
+            Console.WriteLine("5. Generador de Documento Oficial");
             Console.WriteLine("0. Volver al menú principal");
             Console.WriteLine();
             Console.Write("\nOpción: ");
@@ -41,6 +44,9 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                     break;
                 case "4":
                     EjecutarConfiguracionEntorno();
+                    break;
+                case "5":
+                    EjecutarGeneradorDocumento();
                     break;
                 case "0":
                     return;
@@ -135,7 +141,6 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         private static void EjecutarConfiguracionEntorno()
         {
             Console.WriteLine("== Ejemplo Builder: Configuración por Entorno ==");
-
             Console.WriteLine("Seleccione entorno:");
             Console.WriteLine("1. Desarrollo\n2. QA\n3. Producción");
             Console.WriteLine();
@@ -156,6 +161,31 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             var configuracion = builder.ObtenerConfiguracion();
             Console.WriteLine();
             configuracion.Mostrar();
+        }
+        private static void EjecutarGeneradorDocumento()
+        {
+            Console.WriteLine("== Ejemplo Builder: Generador de Documento Oficial ==");
+            Console.WriteLine("Seleccione tipo de documento:");
+            Console.WriteLine("1. Carta\n2. Solicitud\n3. Informe");
+            Console.WriteLine();
+            Console.Write("Opción: ");
+
+            var opcion = Console.ReadLine();
+
+            IDocumentoBuilder builder = opcion switch
+            {
+                "1" => new CartaBuilder(),
+                "2" => new SolicitudBuilder(),
+                "3" => new InformeBuilder(),
+                _ => throw new InvalidOperationException("Opción inválida")
+            };
+
+            var director = new DocumentoDirector();
+            director.ConstruirDocumento(builder);
+
+            var documento = builder.ObtenerDocumento();
+            Console.WriteLine();
+            documento.Mostrar();
         }
     }
 }
