@@ -29,13 +29,22 @@ Cliente -> Utiliza la instancia única a través del método de acceso estático
 
 ## 📦 Ejemplos incluidos
 
-### 🧪 Ejemplo 1: Notificaciones (básico)
+### 🧪 Ejemplo 1: Logger Centralizado
 Ubicación: `Singleton/1.ModuleLoggerCentralizado`
 
 - Implementa un logger compartido por múltiples servicios como `ServicioPago` y `ServicioNotificacion`.
 - Cada llamada a `Logger.Instance.Log(...)` registra el mensaje con marca de tiempo.
 - La clase `Logger` es inmutable, segura y perezosa (`Lazy<T>`).
 - Ideal para centralizar la trazabilidad de eventos en aplicaciones de consola o backend.
+
+### 🧪 Ejemplo 2: Configuración Global  
+Ubicación: `Singleton/2.ModuleConfiguracionGlobal`
+- `ConfiguracionGlobal` contiene:
+  - `Entorno`: nombre del entorno (producción, desarrollo, etc.)
+  - `ConexionBD`: cadena de conexión a la base de datos
+  - `HabilitarLogs`: flag para controlar trazas
+- Los servicios consumen esta instancia sin necesidad de pasarla como parámetro.
+
 
 ---
 
