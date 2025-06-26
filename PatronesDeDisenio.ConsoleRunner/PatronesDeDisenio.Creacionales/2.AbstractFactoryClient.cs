@@ -57,7 +57,6 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 default:
                     Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
                     Console.ReadKey();
-                    Mostrar();
                     break;
             }
 
