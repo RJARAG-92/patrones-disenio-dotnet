@@ -1,5 +1,6 @@
 ﻿// Program.cs - ConsoleRunner 
 using PatronesDeDisenio.ConsoleRunner._1.PatronesDeDisenio.Creacionales;
+using PatronesDeDisenio.ConsoleRunner._2.PatronesDeDisenio.Estructurales;
 
 while (true)
 {
@@ -22,6 +23,7 @@ while (true)
             PatronesDeDisenioCreacionalesClient.Mostrar();
             break;
         case "2":
+            PatronesDeDisenioEstructuralesClient.mo
             break;
         case "3":
             break;
