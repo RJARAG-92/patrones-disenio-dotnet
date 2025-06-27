@@ -14,7 +14,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         public static void Mostrar()
         {
             Console.Clear();
-            Console.WriteLine("=== FACTORY METHOD ===");
+            Console.WriteLine("=== PATRÓN FACTORY METHOD ===");
             Console.WriteLine("Seleccione ejemplo:");
             Console.WriteLine("1. Notificación por tipo (Email/SMS)");
             Console.WriteLine("2. Validación de documento empresarial");
@@ -46,7 +46,6 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 default:
                     Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
                     Console.ReadKey();
-                    Mostrar();
                     break;
             }
 

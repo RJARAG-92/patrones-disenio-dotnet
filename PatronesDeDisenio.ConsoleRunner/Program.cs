@@ -10,6 +10,7 @@ while (true)
     Console.WriteLine("2. Abstract Factory");
     Console.WriteLine("3. Singleton");
     Console.WriteLine("4. Builder");
+    Console.WriteLine("5. Prototype");
     Console.WriteLine("0. Salir");
     Console.WriteLine();
     Console.Write("Opción: ");
@@ -30,6 +31,9 @@ while (true)
             break;
         case "4":
             BuilderClient.Mostrar();
+            break;
+        case "5":
+            PrototypeClient.Mostrar();
             break;
         case "0":
             Console.WriteLine("Saliendo...");

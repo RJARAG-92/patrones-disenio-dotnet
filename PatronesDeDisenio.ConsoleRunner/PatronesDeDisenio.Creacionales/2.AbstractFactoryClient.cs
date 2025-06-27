@@ -21,7 +21,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
         public static void Mostrar()
         {
             Console.Clear();
-            Console.WriteLine("=== ABSTRACT FACTORY ===");
+            Console.WriteLine("=== PATRÓN ABSTRACT FACTORY ===");
             Console.WriteLine("Seleccione ejemplo:");
             Console.WriteLine("1. Pasarelas de Pago");
             Console.WriteLine("2. Conexiones a bases de datos");
@@ -57,7 +57,6 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
                 default:
                     Console.WriteLine("Opción no válida. Presione una tecla para continuar...");
                     Console.ReadKey();
-                    Mostrar();
                     break;
             }
 
