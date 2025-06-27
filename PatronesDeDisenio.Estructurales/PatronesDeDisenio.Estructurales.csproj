@@ -6,13 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="1.Adapter\" />
-    <Folder Include="2.Decorator\" />
-    <Folder Include="3.Facade\" />
-    <Folder Include="4.Composite\" />
-    <Folder Include="5.Proxy\" />
-    <Folder Include="6.Bridge\" />
-  </ItemGroup>
-
 </Project>
