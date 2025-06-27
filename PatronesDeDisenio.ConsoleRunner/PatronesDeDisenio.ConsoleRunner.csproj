@@ -11,4 +11,9 @@
     <ProjectReference Include="..\PatronesDeDisenio.Creacionales\PatronesDeDisenio.Creacionales.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="2.PatronesDeDisenio.Estructurales\" />
+    <Folder Include="3.PatronesDeDisenio.Comportamiento\" />
+  </ItemGroup>
+
 </Project>
