@@ -18,7 +18,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("3. Gestor de Sesión de Usuario");
             Console.WriteLine("4. Gestor de Caché");
             Console.WriteLine("5. Generador de Identificadores Únicos");
-            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine("0. Retornar");
             Console.WriteLine();
             Console.Write("Opción: ");
 

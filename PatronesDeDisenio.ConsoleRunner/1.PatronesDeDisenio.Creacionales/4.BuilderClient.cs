@@ -24,7 +24,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("3. Contratos Personalizados");
             Console.WriteLine("4. Configuración por Entorno");
             Console.WriteLine("5. Generador de Documento Oficial");
-            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine("0. Retornar");
             Console.WriteLine();
             Console.Write("\nOpción: ");
 

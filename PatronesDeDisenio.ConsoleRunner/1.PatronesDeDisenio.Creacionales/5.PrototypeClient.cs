@@ -17,7 +17,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("3. Usuario Perfilado");
             Console.WriteLine("4. Configuración de Ambientes");
             Console.WriteLine("5. Plantilla de Email");
-            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine("0. Retornar");
             Console.WriteLine();
             Console.Write("Opción: ");
 

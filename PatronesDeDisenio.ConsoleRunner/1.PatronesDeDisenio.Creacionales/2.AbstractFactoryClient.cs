@@ -28,7 +28,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("3. Interfaces gráficas multiplataforma");
             Console.WriteLine("4. Generación de informes financieros por región");
             Console.WriteLine("5. Sistema de reportes exportables");
-            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine("0. Retornar");
             Console.WriteLine();
             Console.Write("Opción: ");
 

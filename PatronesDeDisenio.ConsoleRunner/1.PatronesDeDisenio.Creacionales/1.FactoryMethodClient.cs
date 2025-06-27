@@ -20,7 +20,7 @@ namespace PatronesDeDisenio.ConsoleRunner.PatronesDeDisenio.Creacionales
             Console.WriteLine("2. Validación de documento empresarial");
             Console.WriteLine("3. Generación de reporte");
             Console.WriteLine("4. Generación de Comprobante Electronico");
-            Console.WriteLine("0. Volver al menú principal");
+            Console.WriteLine("0. Retornar");
             Console.WriteLine();
             Console.Write("Opción: ");
 
